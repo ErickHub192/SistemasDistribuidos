@@ -1,4 +1,4 @@
-FROM golang:1.23.4 as build
+FROM golang:1.23.4 AS build
 WORKDIR /app
 
 COPY go.mod ./
