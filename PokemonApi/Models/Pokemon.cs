@@ -7,6 +7,7 @@ public class Pokemon{
     public string Type {set; get;}
     
     public int Level {set; get;}
+     public int PowerLevel {set; get;}
     public Stats Stats {set; get;}
     
 }

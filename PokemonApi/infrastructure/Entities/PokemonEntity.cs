@@ -7,6 +7,8 @@ namespace PokemonApi.Infrastructure.Entities
         public string Type { get; set; }
         public int Level { get; set; }
         public int Attack { get; set; }
+       
+       public int PowerLevel { get; set; }
         public int Desense { get; set; }
         public int Speed { get; set; }
     }

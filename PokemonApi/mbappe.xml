@@ -66,6 +66,7 @@
 <xs:element minOccurs="0" name="Id" type="ser:guid"/>
 <xs:element minOccurs="0" name="Level" type="xs:int"/>
 <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="PowerLevel" type="xs:int"/>
 <xs:element xmlns:q1="http://pokemonapi/pokemon-service" minOccurs="0" name="Status" nillable="true" type="q1:statsDto"/>
 <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string"/>
 </xs:sequence>
