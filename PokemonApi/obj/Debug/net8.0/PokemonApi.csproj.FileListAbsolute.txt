@@ -299,3 +299,14 @@ C:\Users\erick\OneDrive\Escritorio\PokemonApi\obj\Debug\net8.0\refint\PokemonApi
 C:\Users\erick\OneDrive\Escritorio\PokemonApi\obj\Debug\net8.0\PokemonApi.pdb
 C:\Users\erick\OneDrive\Escritorio\PokemonApi\obj\Debug\net8.0\PokemonApi.genruntimeconfig.cache
 C:\Users\erick\OneDrive\Escritorio\PokemonApi\obj\Debug\net8.0\ref\PokemonApi.dll
+C:\Users\erick\pojects\PokemonApi\obj\Debug\net8.0\PokemonApi.csproj.AssemblyReference.cache
+C:\Users\erick\pojects\PokemonApi\obj\Debug\net8.0\PokemonApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\erick\pojects\PokemonApi\obj\Debug\net8.0\PokemonApi.AssemblyInfoInputs.cache
+C:\Users\erick\pojects\PokemonApi\obj\Debug\net8.0\PokemonApi.AssemblyInfo.cs
+C:\Users\erick\pojects\PokemonApi\obj\Debug\net8.0\PokemonApi.csproj.CoreCompileInputs.cache
+C:\Users\erick\pojects\PokemonApi\obj\Debug\net8.0\PokemonApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\erick\pojects\PokemonApi\obj\Debug\net8.0\PokemonApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\erick\pojects\PokemonApi\obj\Debug\net8.0\PokemonApi.sourcelink.json
+C:\Users\erick\pojects\PokemonApi\obj\Debug\net8.0\PokemonApi.dll
+C:\Users\erick\pojects\PokemonApi\obj\Debug\net8.0\refint\PokemonApi.dll
+C:\Users\erick\pojects\PokemonApi\obj\Debug\net8.0\PokemonApi.pdb

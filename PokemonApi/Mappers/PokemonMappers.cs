@@ -18,6 +18,7 @@ namespace PokemonApi.Mappers
                 Name = entity.Name,
                 Type = entity.Type,
                 Level = entity.Level,
+                PowerLevel = entity.PowerLevel,
                 Stats = new Stats {
                     Attack  = entity.Attack,
                     Defense = entity.Desense,
@@ -38,6 +39,7 @@ namespace PokemonApi.Mappers
                 Level = pokemon.Level,
                 Name  = pokemon.Name,
                 Type  = pokemon.Type,
+                PowerLevel  = pokemon.PowerLevel,
                 Status = new statsDto {
                     Attack  = pokemon.Stats.Attack,
                     Speed   = pokemon.Stats.Speed,
