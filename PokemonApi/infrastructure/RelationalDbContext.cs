@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using PokemonApi.Infrastructure.Entities; // Agregar referencia a PokemonEntity
-namespace PokemonApi.Infrastructure
-{
+using PokemonApi.Infrastructure.Entities; 
+namespace PokemonApi.Infrastructure;
+
     public class RelationalDbContext : DbContext
     {
         public RelationalDbContext(DbContextOptions<RelationalDbContext> options)
@@ -9,7 +9,8 @@ namespace PokemonApi.Infrastructure
         {
         }
 
-        public DbSet<PokemonEntity> Pokemons { get; set; } 
+        public DbSet<PokemonEntity> Pokemons { get; set; }
+        public DbSet<HobbiesEntity> Hobbies { get; set; } 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,7 +25,13 @@ namespace PokemonApi.Infrastructure
                 entity.Property(s => s.Attack).IsRequired();
                 entity.Property(s => s.Speed).IsRequired();
             });
+             modelBuilder.Entity<HobbiesEntity>(entity =>
+            {
+                entity.HasKey(s => s.Id);
+                entity.Property(s => s.Name).IsRequired().HasMaxLength(100);
+                entity.Property(s => s.Top).IsRequired();
+            });
         }
     }
-}
+
 

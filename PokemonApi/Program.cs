@@ -11,9 +11,10 @@ builder.Services.AddSoapCore();
 
 
 builder.Services.AddScoped<IPokemonService, PokemonService>();
-
-builder.Services.AddSingleton<IPokemonService, PokemonService>();
 builder.Services.AddScoped<IPokemonRepository, PokemonRepository>();
+
+builder.Services.AddScoped<IHobbiesService, HobbiesService>();
+builder.Services.AddScoped<IHobbiesRepository, HobbiesRepository>();
 
 
 builder.Services.AddDbContext<RelationalDbContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), ServerVersion.AutoDetect( builder.Configuration.GetConnectionString("DefaultConnection"))));
@@ -21,6 +22,7 @@ builder.Services.AddDbContext<RelationalDbContext>(options => options.UseMySql(b
 var app = builder.Build();
 
 app.UseSoapEndpoint<IPokemonService>("/PokemonService.svc", new SoapEncoderOptions());
+app.UseSoapEndpoint<IHobbiesService>("/ErickArriolaHobbiesService.svc", new SoapEncoderOptions());
 
 app.Urls.Add("http://0.0.0.0:8090");
 app.Run();
