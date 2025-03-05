@@ -38,4 +38,14 @@ public async Task<Hobbies> GetHobbyById(Guid id, CancellationToken cancellationT
             
         return hobbyEntities.Select(h => h.ToModel()).ToList();
     }
+
+       public async Task AddAsync(Hobbies hobbies,CancellationToken cancellationToken) {
+        await _context.Hobbies.AddAsync(hobbies.ToEntity(), cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken) ;
+     }
+
+     public async Task UpdateAsync(Hobbies hobbies,CancellationToken cancellationToken) {
+        _context.Hobbies.Update(hobbies.ToEntity());
+        await _context.SaveChangesAsync(cancellationToken);
+     }
 }
