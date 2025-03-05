@@ -7,5 +7,10 @@ public interface IHobbiesRepository{
     Task<Hobbies> DeleteHobby(Guid id, CancellationToken cancellationToken);
       Task<List<Hobbies>> GetHobbiesByName(string name, CancellationToken cancellationToken);
 
+       Task AddAsync(Hobbies hobbies,CancellationToken cancellationToken);
+
+    Task UpdateAsync(Hobbies hobbies,CancellationToken cancellationToken);
+    
+
 
 }

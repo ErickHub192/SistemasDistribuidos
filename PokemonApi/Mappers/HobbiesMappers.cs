@@ -33,5 +33,22 @@ namespace PokemonApi.Mappers
                 Top  = hobbies.Top
             };
         }
+
+        
+        public static Hobbies ToModel (this CreateHobbyDto hobbies){
+            return new Hobbies{
+                Id =Guid.NewGuid(),
+                Name = hobbies.Name,
+                Top =hobbies.Top
+            };
+        }
+
+    public static HobbiesEntity ToEntity(this Hobbies hobbies){
+    return new HobbiesEntity{
+        Id= hobbies.Id,
+        Name=hobbies.Name,
+        Top= hobbies.Top
+    };
+}
     }
 }
