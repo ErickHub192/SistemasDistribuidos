@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using okemonApi.Infrastructure.Entities;
 using PokemonApi.Infrastructure.Entities; 
 namespace PokemonApi.Infrastructure;
 
@@ -9,7 +8,6 @@ namespace PokemonApi.Infrastructure;
 
          public DbSet<BookEntity> Books { get; set; }
 
-        public DbSet<PokemonEntity> Pokemons { get; set; }
         public DbSet<HobbiesEntity> Hobbies { get; set; } 
  
 
@@ -36,14 +34,12 @@ namespace PokemonApi.Infrastructure;
                 entity.Property(s => s.Title).IsRequired().HasMaxLength(100);
                 entity.Property(s => s.Author).IsRequired().HasMaxLength(100);
                 entity.Property(s => s.PublishedDate).IsRequired().HasColumnType("datetime");
-             modelBuilder.Entity<HobbiesEntity>(entity =>
-            {
+                });
+             modelBuilder.Entity<HobbiesEntity>(entity =>{
                 entity.HasKey(s => s.Id);
                 entity.Property(s => s.Name).IsRequired().HasMaxLength(100);
                 entity.Property(s => s.Top).IsRequired();
             });
         }
-    }
-            });
-        }
-    }
+    }    
+    
