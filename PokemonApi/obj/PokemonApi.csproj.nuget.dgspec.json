@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\erick\\pojects\\PokemonApi\\PokemonApi.csproj": {}
+    "c:\\Users\\erick\\pojects\\PokemonApi\\PokemonApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\erick\\pojects\\PokemonApi\\PokemonApi.csproj": {
+    "c:\\Users\\erick\\pojects\\PokemonApi\\PokemonApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\erick\\pojects\\PokemonApi\\PokemonApi.csproj",
+        "projectUniqueName": "c:\\Users\\erick\\pojects\\PokemonApi\\PokemonApi.csproj",
         "projectName": "PokemonApi",
-        "projectPath": "C:\\Users\\erick\\pojects\\PokemonApi\\PokemonApi.csproj",
+        "projectPath": "c:\\Users\\erick\\pojects\\PokemonApi\\PokemonApi.csproj",
         "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\erick\\pojects\\PokemonApi\\obj\\",
+        "outputPath": "c:\\Users\\erick\\pojects\\PokemonApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
