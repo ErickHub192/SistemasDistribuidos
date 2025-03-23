@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Q5RVsrfgVX0=",
+  "dgSpecHash": "Y6GnlNch1bs=",
   "success": true,
-  "projectFilePath": "c:\\Users\\erick\\pojects\\PokedexApi\\PokedexApi.csproj",
+  "projectFilePath": "C:\\Users\\erick\\pojects\\PokedexApi\\PokedexApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\erick\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\6.0.27\\microsoft.aspnetcore.connections.abstractions.6.0.27.nupkg.sha512",
     "C:\\Users\\erick\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.1.1\\microsoft.aspnetcore.http.abstractions.2.1.1.nupkg.sha512",
