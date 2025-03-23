@@ -20,7 +20,7 @@ namespace PokemonApi.Mappers
                 PowerLevel = entity.PowerLevel,
                 Stats = new Stats {
                     Attack  = entity.Attack,
-                    Defense = entity.Desense,
+                    Desense = entity.Desense,
                     Speed   = entity.Speed
                 }
             };
@@ -35,14 +35,14 @@ namespace PokemonApi.Mappers
 
             return new PokemonResponseDto {
                 Id    = pokemon.Id,
-                Level = pokemon.Level,
                 Name  = pokemon.Name,
                 Type  = pokemon.Type,
+                Level = pokemon.Level,
                 PowerLevel  = pokemon.PowerLevel,
-                Stats = new statsDto {
+                Stats = new StatsDto {
                     Attack  = pokemon.Stats.Attack,
-                    Speed   = pokemon.Stats.Speed,
-                    Defense = pokemon.Stats.Defense
+                    Desense = pokemon.Stats.Desense,
+                    Speed   = pokemon.Stats.Speed
                 }
             };
         }
@@ -65,14 +65,14 @@ namespace PokemonApi.Mappers
         Type=pokemon.Type,
         Level=pokemon.Level,
         Attack=pokemon.Stats.Attack,
-        Desense=pokemon.Stats.Defense,
+        Desense=pokemon.Stats.Desense,
         Speed=pokemon.Stats.Speed
     };
 }
-        public static Stats ToModel(this statsDto stats){
+        public static Stats ToModel(this StatsDto stats){
             return new Stats{
                 Attack = stats.Attack,
-                Defense = stats.Defense,
+                Desense = stats.Desense,
                 Speed = stats.Speed
             };
         }

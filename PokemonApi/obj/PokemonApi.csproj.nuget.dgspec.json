@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\erick\\pojects\\PokemonApi\\PokemonApi.csproj": {}
+    "C:\\Users\\erick\\OneDrive\\Escritorio\\CopiaRepo\\SistemasDistribuidos\\PokemonApi\\PokemonApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\erick\\pojects\\PokemonApi\\PokemonApi.csproj": {
+    "C:\\Users\\erick\\OneDrive\\Escritorio\\CopiaRepo\\SistemasDistribuidos\\PokemonApi\\PokemonApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\erick\\pojects\\PokemonApi\\PokemonApi.csproj",
+        "projectUniqueName": "C:\\Users\\erick\\OneDrive\\Escritorio\\CopiaRepo\\SistemasDistribuidos\\PokemonApi\\PokemonApi.csproj",
         "projectName": "PokemonApi",
-        "projectPath": "C:\\Users\\erick\\pojects\\PokemonApi\\PokemonApi.csproj",
+        "projectPath": "C:\\Users\\erick\\OneDrive\\Escritorio\\CopiaRepo\\SistemasDistribuidos\\PokemonApi\\PokemonApi.csproj",
         "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\erick\\pojects\\PokemonApi\\obj\\",
+        "outputPath": "C:\\Users\\erick\\OneDrive\\Escritorio\\CopiaRepo\\SistemasDistribuidos\\PokemonApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -22,7 +22,7 @@ public class PokemonCommon
     
     
     [DataMember(Name="Stats",Order=5)]
-    public statsDto Stats { get; set; } 
+    public StatsDto Stats { get; set; } 
 
      
 }
