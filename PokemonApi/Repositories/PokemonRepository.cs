@@ -11,12 +11,12 @@ public class PokemonRepository : IPokemonRepository {
 public PokemonRepository(RelationalDbContext context){
     _context = context;
 }
-public async Task<Pokemon> GetByAsync(Guid id, CancellationToken cancellationToken){
+public async Task<Pokemon> GetPokemonByIdAsync(Guid id, CancellationToken cancellationToken){
     
     var Pokemon = await _context.Pokemons.AsNoTracking().FirstOrDefaultAsync(s => s.Id == id, cancellationToken);
     return Pokemon.ToModel();
 }
-public async Task DeleteAsync(Pokemon pokemon,CancellationToken cancellationToken){
+public async Task DeletePokemonByIdAsync(Pokemon pokemon,CancellationToken cancellationToken){
             _context.Pokemons.Remove(pokemon.ToEntity());
             await _context.SaveChangesAsync(cancellationToken);
 
@@ -31,4 +31,14 @@ public async Task DeleteAsync(Pokemon pokemon,CancellationToken cancellationToke
         _context.Pokemons.Update(pokemon.ToEntity());
         await _context.SaveChangesAsync(cancellationToken);
      }
+     public async Task<IEnumerable<Pokemon>> GetPokemonByNameAsync(string name, CancellationToken cancellationToken)
+{
+    var pokemons = await _context.Pokemons
+        .AsNoTracking()
+        .Where(s => s.Name == name)
+        .ToListAsync(cancellationToken);
+
+    return pokemons.Select(p => p.ToModel());
+}
+
 }
