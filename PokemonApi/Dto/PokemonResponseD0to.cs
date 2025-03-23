@@ -9,6 +9,6 @@ namespace PokemonApi.Dtos
 
          public int PowerLevel { get; set; }
          
-        public statsDto Status { get; set; }
+        public statsDto Stats { get; set; }
     }
 }
