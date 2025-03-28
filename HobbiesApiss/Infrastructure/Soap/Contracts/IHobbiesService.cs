@@ -3,7 +3,7 @@ using HobbiesApi.Infrastructure.Soap.Dtos;
 
 namespace HobbiesApi.Infrastructure.Soap.Contracts;
 
-[ServiceContract(Name = "HobbiesService", Namespace = "http://hobbiesapi/hobbies-service")]
+[ServiceContract(Name = "HobbiesService", Namespace = "http://hobbies-api/hobbies-service")]
 public interface IHobbiesService
 {
     [OperationContract]

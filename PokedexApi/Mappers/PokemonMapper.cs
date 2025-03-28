@@ -6,14 +6,11 @@ namespace PokedexApi.Mapper
 {
     public static class PokemonMapper
     {
-        // Mapea del modelo (dominio) a la respuesta de la API REST
         public static PokemonResponse ToDto(this Pokemon pokemon)
         {
             if (pokemon == null)
-            {
                 throw new ArgumentNullException(nameof(pokemon), "El objeto Pokemon es nulo.");
-            }
-            
+
             return new PokemonResponse
             {
                 Id = pokemon.Id,
@@ -21,25 +18,20 @@ namespace PokedexApi.Mapper
                 Type = pokemon.Type ?? "Desconocido",
                 Level = pokemon.Level,
                 PowerLevel = pokemon.PowerLevel,
-                Stats = pokemon.Stats != null
-                    ? new StatsResponse
-                    {
-                        Attack = pokemon.Stats.Attack,
-                        // Se mapea el valor de Defense del modelo al campo Desense en la respuesta
-                        Desense = pokemon.Stats.Defense,
-                        Speed = pokemon.Stats.Speed
-                    }
-                    : new StatsResponse { Attack = 0, Desense = 0, Speed = 0 }
+                Stats = new StatsResponse
+                {
+                    Attack = pokemon.Stats?.Attack ?? 0,
+                    Desense = pokemon.Stats?.Defense ?? 0,
+                    Speed = pokemon.Stats?.Speed ?? 0
+                }
             };
         }
 
-        // Mapea del DTO SOAP a tu modelo (dominio)
+        
         public static Pokemon ToModel(this PokemonResponseDto pokemon)
         {
             if (pokemon == null)
-            {
                 throw new ArgumentNullException(nameof(pokemon), "El objeto PokemonResponseDto es nulo.");
-            }
 
             Console.WriteLine($"[DEBUG] Mapeando DTO a modelo: {pokemon.Name ?? "Nombre nulo"}");
 
@@ -50,16 +42,83 @@ namespace PokedexApi.Mapper
                 Type = pokemon.Type ?? "Desconocido",
                 Level = pokemon.Level,
                 PowerLevel = pokemon.PowerLevel,
-                Stats = pokemon.Stats != null
-                    ? new Stats
-                    {
-                        Attack = pokemon.Stats.Attack,
-                        // Se mapea el valor de desense del DTO SOAP al campo Defense en el modelo
-                        Defense = pokemon.Stats.Desense,
-                        Speed = pokemon.Stats.Speed
-                    }
-                    : new Stats { Attack = 0, Defense = 0, Speed = 0 }
+                Stats = new Stats
+                {
+                    Attack = pokemon.Stats?.Attack ?? 0,
+                    Defense = pokemon.Stats?.Desense ?? 0,
+                    Speed = pokemon.Stats?.Speed ?? 0
+                }
+            };
+        }
+
+        public static CreatePokemonDto ToSoapDto(this Pokemon pokemon)
+        {
+            return new CreatePokemonDto
+            {
+                Name = pokemon.Name,
+                Type = pokemon.Type,
+                Level = pokemon.Level,
+                PowerLevel = pokemon.PowerLevel,
+                Stats = new StatsDto
+                {
+                    Attack = pokemon.Stats?.Attack ?? 0,
+                    Desense = pokemon.Stats?.Defense ?? 0,
+                    Speed = pokemon.Stats?.Speed ?? 0
+                }
+            };
+        }
+
+        public static Pokemon ToModel(this CreatePokemonRequest pokemon)
+        {
+            return new Pokemon
+            {
+                Name = pokemon.Name,
+                Type = pokemon.Type,
+                Level = pokemon.Level,
+                PowerLevel = pokemon.PowerLevel,
+                Stats = new Stats
+                {
+                    Attack = pokemon.Attack,
+                    Defense = pokemon.Desense,
+                    Speed = pokemon.Speed
+                }
+            };
+        }
+
+        public static Pokemon ToModel(this UpdatePokemonRequest pokemon)
+        {
+            return new Pokemon
+            {
+                Name = pokemon.Name,
+                Type = pokemon.Type,
+                Level = pokemon.Level,
+                PowerLevel = pokemon.PowerLevel,
+                Stats = new Stats
+                {
+                    Attack = pokemon.Attack,
+                    Defense = pokemon.Desense,
+                    Speed = pokemon.Speed
+                }
+            };
+        }
+        public static UpdatePokemonDto ToUpdateSoapDto(this Pokemon pokemon)
+        {
+            return new UpdatePokemonDto
+            {
+                Id = pokemon.Id,
+                Name = pokemon.Type, 
+                Type = pokemon.Type, 
+                Level = pokemon.Level,
+                PowerLevel = pokemon.PowerLevel,
+                Stats = new StatsDto
+                {
+                    Attack = pokemon.Stats.Attack,
+                    Desense = pokemon.Stats.Defense,
+                    Speed = pokemon.Stats.Speed
+                }
             };
         }
     }
 }
+
+
