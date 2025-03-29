@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "41G4YtuB08k=",
+  "dgSpecHash": "gxx8I5/wKAY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\erick\\pojects\\HobbiesApiss\\HobbiesApiss.csproj",
+  "projectFilePath": "c:\\Users\\erick\\pojects\\HobbiesApiss\\HobbiesApiss.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\erick\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\6.0.27\\microsoft.aspnetcore.connections.abstractions.6.0.27.nupkg.sha512",
     "C:\\Users\\erick\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.1.1\\microsoft.aspnetcore.http.abstractions.2.1.1.nupkg.sha512",

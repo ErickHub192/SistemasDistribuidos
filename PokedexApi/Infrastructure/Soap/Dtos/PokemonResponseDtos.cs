@@ -3,7 +3,7 @@ using PokedexApi.Dtos;
 namespace PokedexApi.Infrastructure.Soap.Dtos
 {
 
-     [DataContract(Name = "PokemonResponseDto", Namespace = "http://Pokemon-api/Pokemon-service")]
+     [DataContract(Name = "PokemonResponseDto", Namespace = "http://pokemon-api/pokemon-service")]
    
     public class PokemonResponseDto
     {
