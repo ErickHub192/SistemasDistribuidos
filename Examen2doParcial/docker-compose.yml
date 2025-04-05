@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  api:
+    build: .
+    container_name: artistas-api
+    image: artistas-api:1
+    ports:
+      - "5201:8090"
+    environment:
+      - DEFAULT_CONNECTION=mysql+asyncmy://pika:pass@mysql-container:3306/DistributedSystems
+    networks:
+      - mi-redd
+
+networks:
+  mi-redd:
+    external: true
