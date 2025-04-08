@@ -36,5 +36,8 @@ namespace HobbiesApi.Services
 
             return hobbies.Select(h => h.ToDto()).ToList();
         }
+        public async Task<bool>DeleteHobbyById(Guid id, CancellationToken cancellationToken){
+return await _hobbiesRepository.DeleteHobbyById(id, cancellationToken);
+        }
     }
 }

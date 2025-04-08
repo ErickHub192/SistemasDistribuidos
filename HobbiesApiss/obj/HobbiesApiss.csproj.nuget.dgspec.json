@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\erick\\pojects\\HobbiesApiss\\HobbiesApiss.csproj": {}
+    "c:\\Users\\erick\\pojects\\HobbiesApiss\\HobbiesApiss.csproj": {}
   },
   "projects": {
-    "C:\\Users\\erick\\pojects\\HobbiesApiss\\HobbiesApiss.csproj": {
+    "c:\\Users\\erick\\pojects\\HobbiesApiss\\HobbiesApiss.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\erick\\pojects\\HobbiesApiss\\HobbiesApiss.csproj",
+        "projectUniqueName": "c:\\Users\\erick\\pojects\\HobbiesApiss\\HobbiesApiss.csproj",
         "projectName": "HobbiesApiss",
-        "projectPath": "C:\\Users\\erick\\pojects\\HobbiesApiss\\HobbiesApiss.csproj",
+        "projectPath": "c:\\Users\\erick\\pojects\\HobbiesApiss\\HobbiesApiss.csproj",
         "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\erick\\pojects\\HobbiesApiss\\obj\\",
+        "outputPath": "c:\\Users\\erick\\pojects\\HobbiesApiss\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

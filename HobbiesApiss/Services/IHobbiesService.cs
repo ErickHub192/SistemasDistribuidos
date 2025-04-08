@@ -11,4 +11,8 @@ public interface IHobbiesService
 
     [OperationContract]
     Task<List<HobbiesResponseDto>> GetHobbyByName(string name, CancellationToken cancellationToken);
+
+[OperationContract]
+Task<bool> DeleteHobbyById(Guid id, CancellationToken cancellationToken);
+
 }

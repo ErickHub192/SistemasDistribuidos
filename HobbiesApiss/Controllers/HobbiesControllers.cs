@@ -37,4 +37,12 @@ public class HobbiesController : ControllerBase
 
         return Ok(hobbies);
     }
+    [HttpDelete("{id}")]
+public async Task<ActionResult> DeletePokemonById(Guid id, CancellationToken cancellationtoken){
+    var deleted = await _hobbiesService.DeleteHobbyById(id, cancellationtoken);
+    if(deleted){
+        return NoContent();
     }
+    return NotFound();
+}
+  }
