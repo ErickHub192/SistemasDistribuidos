@@ -56,3 +56,19 @@ GET /api/v1/artistas/paginated?page=1&size=10
 
 La API utiliza MySQL y SQLAlchemy para la conexión. La URL de conexión se configura mediante la variable de entorno `DEFAULT_CONNECTION`.
 
+
+ ## Autenticación
+ 
+La API utiliza JWT Bearer Token para proteger ciertos endpoints. Esto significa que para acceder a los endpoints protegidos (por ejemplo, obtener o modificar un artista), es necesario enviar un token de acceso válido en el header Authorization de la petición.
+
+Uso del token
+Para acceder a un endpoint protegido, incluye el token en el header Authorization de la siguiente manera:
+
+Authorization: Bearer tu_token
+
+Los endpoints POST, PUT y DELETE requieren que el token incluya el scope "Write".
+
+Si el token no contiene el scope necesario, la API responderá con un error 403 Forbidden.
+
+
+
