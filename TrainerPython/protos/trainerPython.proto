@@ -1,0 +1,33 @@
+syntax = "proto3";
+package trainerpb;
+
+import "google/protobuf/timestamp.proto";
+
+service TrainerService {
+  rpc GetTrainer (TrainerByIdRequest) returns (TrainerResponse);
+}
+
+message TrainerByIdRequest {
+  string id = 1;
+}
+
+message TrainerResponse {
+  string id = 1;
+  string Name = 2;
+  int32 Age = 3;
+  google.protobuf.Timestamp Birthday = 4;
+  repeated Medals medals = 5;
+  google.protobuf.Timestamp Created_at = 6;
+}
+
+message Medals {
+  string Region = 1;
+  MedalType Type = 2; 
+}
+
+enum MedalType {
+  UNKNOWN = 0;
+  GOLD = 1;
+  SILVER = 2;
+  BRONZE = 3;
+}
