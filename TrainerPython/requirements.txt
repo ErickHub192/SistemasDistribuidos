@@ -1,3 +1,5 @@
 grpcio>=1.53.0
 grpcio-tools>=1.53.0
 googleapis-common-protos>=1.56.4
+pymongo==4.13.0
+motor==3.7.1

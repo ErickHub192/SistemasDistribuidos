@@ -1,25 +1,35 @@
-# main.py
-
-from concurrent import futures
+import os
+import asyncio
 import grpc
-import trainer_pb2_grpc
-from services.Trainservicepy import TrainerServiceServicer
+import grpc.aio
+from motor.motor_asyncio import AsyncIOMotorClient
+import trainerPython_pb2_grpc
+from services.trainer_service import TrainerServiceServicer
+from repositories.trainer_repository import TrainerRepository
+from config import MongoDBSettings
 
-def serve():
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    trainer_pb2_grpc.add_TrainerServiceServicer_to_server(
-        TrainerServiceServicer(), server
-    )
-    server.add_insecure_port('[::]:50051')
-    server.start()
-    print("Server started on port 50051")
-    server.wait_for_termination()
+async def serve():
+    
+    settings = MongoDBSettings.from_env()
 
-if __name__ == '__main__':
-    try:
-        serve()
-    except Exception as e:
-        import traceback
-        print("¡Error al arrancar el servidor!", e)
-        traceback.print_exc()
-        raise
+    
+    client = AsyncIOMotorClient(settings.connection_string)
+    db = client[settings.database_name]
+    collection = db.get_collection(settings.collection_name)
+
+    
+    repo = TrainerRepository(collection)
+    service = TrainerServiceServicer(repository=repo)
+
+    
+    server = grpc.aio.server()
+    trainerPython_pb2_grpc.add_TrainerServiceServicer_to_server(service, server)
+    server.add_insecure_port("[::]:50051")
+    await server.start()
+    print("gRPC aio Server started on port 50051")
+    await server.wait_for_termination()
+
+if __name__ == "__main__":
+    asyncio.run(serve())
+
+
