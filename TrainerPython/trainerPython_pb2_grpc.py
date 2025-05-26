@@ -44,13 +44,18 @@ class TrainerServiceStub(object):
                 request_serializer=trainerPython__pb2.CreateTrainerRequest.SerializeToString,
                 response_deserializer=trainerPython__pb2.CreateTrainersResponse.FromString,
                 _registered_method=True)
+        self.GetTrainersByName = channel.unary_stream(
+                '/trainerpb.TrainerService/GetTrainersByName',
+                request_serializer=trainerPython__pb2.GetTrainersByNameRequest.SerializeToString,
+                response_deserializer=trainerPython__pb2.TrainerResponse.FromString,
+                _registered_method=True)
 
 
 class TrainerServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetTrainer(self, request, context):
-        """unary call
+        """unary
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -58,6 +63,13 @@ class TrainerServiceServicer(object):
 
     def CreateTrainer(self, request_iterator, context):
         """server streaming
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetTrainersByName(self, request, context):
+        """client streaming
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -75,6 +87,11 @@ def add_TrainerServiceServicer_to_server(servicer, server):
                     servicer.CreateTrainer,
                     request_deserializer=trainerPython__pb2.CreateTrainerRequest.FromString,
                     response_serializer=trainerPython__pb2.CreateTrainersResponse.SerializeToString,
+            ),
+            'GetTrainersByName': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetTrainersByName,
+                    request_deserializer=trainerPython__pb2.GetTrainersByNameRequest.FromString,
+                    response_serializer=trainerPython__pb2.TrainerResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -131,6 +148,33 @@ class TrainerService(object):
             '/trainerpb.TrainerService/CreateTrainer',
             trainerPython__pb2.CreateTrainerRequest.SerializeToString,
             trainerPython__pb2.CreateTrainersResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetTrainersByName(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/trainerpb.TrainerService/GetTrainersByName',
+            trainerPython__pb2.GetTrainersByNameRequest.SerializeToString,
+            trainerPython__pb2.TrainerResponse.FromString,
             options,
             channel_credentials,
             insecure,

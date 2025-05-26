@@ -1,6 +1,7 @@
 import grpc
 from google.protobuf.timestamp_pb2 import Timestamp
 import trainerPython_pb2
+import asyncio
 import trainerPython_pb2_grpc
 from repositories.trainer_repository import TrainerRepository
 from mappers.trainer_mappers import domain_to_response, request_to_domain
@@ -31,5 +32,18 @@ class TrainerServiceServicer(trainerPython_pb2_grpc.TrainerServiceServicer):
             success_count=len(created_responses),
             trainers=created_responses
         )
-
+        
+    async def GetTrainersByName(self, request, context):
+        if not request.name or len(request.name) <= 1:
+            context.abort(
+                grpc.StatusCode.INVALID_ARGUMENT,
+                "Name field is required"
+            )
+        
+        trainers = await self._repo.get_by_name(request.name)
+        
+        for trainer in trainers: 
+            await asyncio.sleep(5)
+            yield domain_to_response(trainer)
+            
 

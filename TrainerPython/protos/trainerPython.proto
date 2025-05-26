@@ -7,9 +7,15 @@ option csharp_namespace = "TrainerApi";
 import "google/protobuf/timestamp.proto";
 
 service TrainerService {
-    rpc GetTrainer (TrainerByIdRequest) returns (TrainerResponse); //unary call
-    rpc CreateTrainer (stream CreateTrainerRequest) returns (CreateTrainersResponse); //server streaming
-    // ...
+    rpc GetTrainer (TrainerByIdRequest) returns (TrainerResponse); // unary
+    rpc CreateTrainer (stream CreateTrainerRequest) returns (CreateTrainersResponse); // server streaming
+    rpc GetTrainersByName (GetTrainersByNameRequest) returns (stream TrainerResponse); // client streaming
+}
+
+
+
+message GetTrainersByNameRequest {
+    string name = 1;
 }
 
 message CreateTrainersResponse {
@@ -21,7 +27,7 @@ message CreateTrainerRequest {
     string name = 1;
     int32 age = 2;
     google.protobuf.Timestamp birthdate = 3;
-    repeated Medals medals = 4;
+    repeated Medals medals = 4; 
 }
 
 message TrainerByIdRequest {
@@ -37,12 +43,12 @@ message TrainerResponse {
     google.protobuf.Timestamp created_at = 6;
 }
 
-message Medals{
+message Medals {
     string region = 1;
     MedalType type = 2;
 }
 
-enum MedalType{
+enum MedalType {
     UNKNOWN = 0;
     GOLD = 1;
     SILVER = 2;
