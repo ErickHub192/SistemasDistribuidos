@@ -1,27 +1,10 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  artistas-api:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: artistas-api
-    image: artistas-api:1
-    ports:
-      - "5201:8090"
-    depends_on:
-      - hydra-admin
-      - hydra-public
-    environment:
-      - ASPNETCORE_URLS=http://0.0.0.0:8090 
-      - Authentication__Authority=http://hydra-public:4444
-      - Authentication__Issuer=http://hydra-public:4444
-      - DEFAULT_CONNECTION=mysql+asyncmy://pika:pass@mysql-container:3306/DistributedSystems
-    networks:
-      - mi-redd
 
   mysql-container:
     image: mysql:8.0
+    container_name: mysql-container
     environment:
       MYSQL_DATABASE: DistributedSystems
       MYSQL_USER: pika
@@ -31,6 +14,32 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+    networks:
+      - mi-redd
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p"]  
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    
+
+  artistas-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: artistas-api
+    image: artistas-api:1
+    ports:
+      - "5201:8090"
+    depends_on:
+      - mysql-container     
+      - hydra-admin
+      - hydra-public
+    environment:
+      - ASPNETCORE_URLS=http://0.0.0.0:8090 
+      - Authentication__Authority=http://hydra-public:4444
+      - Authentication__Issuer=http://hydra-public:4444
+      - DEFAULT_CONNECTION=mysql+asyncmy://pika:pass@mysql-container:3306/DistributedSystems
     networks:
       - mi-redd
 
@@ -68,7 +77,6 @@ services:
       - URLS_SELF_ISSUER=http://hydra-public:4444
       - SECRETS_SYSTEM=thiisaverysecretkey123
       - OAUTH2_ACCESS_TOKEN_STRATEGY=jwt
-      
     command: serve public --dev
     ports:
       - "4444:4444"
@@ -84,7 +92,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - "hydra-data:/var/lib/postgresql/data"
+      - hydra-data:/var/lib/postgresql/data
     networks:
       - mi-redd
 
